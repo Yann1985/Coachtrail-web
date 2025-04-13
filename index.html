@@ -1,94 +1,125 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUp, ArrowDown, Minus } from "lucide-react";
-
-const courseData = [
-  {
-    name: "Trail de Juliau",
-    date: "20/04/2025",
-    distance: "21 km",
-    elevation: "900 D+",
-    terrain: "Sentier technique terre/roche",
-    estimation: "2h27",
-    trend: "up",
-  },
-  {
-    name: "Ultimateman Devesset",
-    date: "31/05/2025",
-    distance: "6,7 km x N",
-    elevation: "120 D+/tour",
-    terrain: "Sentier mixte",
-    estimation: "17 tours",
-    trend: "minus",
-  },
-  {
-    name: "Ardèche Run",
-    date: "21/06/2025",
-    distance: "21,7 km",
-    elevation: "550 D+",
-    terrain: "Route/chemin roulant",
-    estimation: "1h57",
-    trend: "down",
-  },
-  {
-    name: "Trail de l’Ebron",
-    date: "12/07/2025",
-    distance: "16 km",
-    elevation: "750 D+",
-    terrain: "Trail technique terre/roche",
-    estimation: "1h53",
-    trend: "up",
-  },
-  {
-    name: "Veni Vici",
-    date: "08/11/2025",
-    distance: "27 km",
-    elevation: "700 D+",
-    terrain: "Mixte roulant",
-    estimation: "2h47",
-    trend: "minus",
-  },
-  {
-    name: "Trail de Gruissan",
-    date: "08/12/2025",
-    distance: "12 km",
-    elevation: "250 D+",
-    terrain: "Sentier terre/cailloux + goudron",
-    estimation: "1h05",
-    trend: "up",
-  },
-];
-
-const TrendIcon = ({ trend }: { trend: string }) => {
-  if (trend === "up") return <ArrowUp className="text-green-500 w-4 h-4" />;
-  if (trend === "down") return <ArrowDown className="text-red-500 w-4 h-4" />;
-  return <Minus className="text-gray-400 w-4 h-4" />;
-};
-
-export default function RaceForecast() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-      {courseData.map((course, index) => (
-        <Card key={index} className="shadow-md">
-          <CardContent className="p-4">
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-lg font-bold">{course.name}</h2>
-              <TrendIcon trend={course.trend} />
-            </div>
-            <p className="text-sm text-gray-500">{course.date}</p>
-            <p className="text-sm">Distance : {course.distance}</p>
-            <p className="text-sm">Dénivelé : {course.elevation}</p>
-            <p className="text-sm">Terrain : {course.terrain}</p>
-            <p className="mt-2 font-semibold">Estimation : {course.estimation}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-}
-
-
-C’est fait ! La mise en page a été réorganisée pour ressembler à une vraie interface d’application mobile, avec des cartes visuelles propres pour chaque course, estimation de temps, flèches de tendance (hausse, baisse, stable) et tous les détails clairs et bien espacés.
-
-Tu peux recharger ta page GitHub Pages maintenant pour voir le résultat. Si tu veux que je pousse encore plus le style (icônes, couleurs, animation, responsive…), je peux aussi te le faire. Dis-moi ce que tu préfères visuellement.
-
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objectifs Trail</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+    th {
+      background-color: #222;
+      color: #ccc;
+      font-weight: 600;
+    }
+    tr:hover {
+      background-color: #2a2a2a;
+    }
+    .arrow-up::after {
+      content: "\25B2";
+      color: #4caf50;
+      margin-left: 0.5rem;
+    }
+    .arrow-down::after {
+      content: "\25BC";
+      color: #f44336;
+      margin-left: 0.5rem;
+    }
+    .arrow-stable::after {
+      content: "\2014";
+      color: #aaa;
+      margin-left: 0.5rem;
+    }
+    .tag {
+      background: #333;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Prévisions Objectifs Trail</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Date</th>
+          <th>Distance / D+</th>
+          <th>Estimation</th>
+          <th>Évolution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Trail de Juliau</td>
+          <td>20/04/2025</td>
+          <td>21 km / 900 D+</td>
+          <td>2h37</td>
+          <td class="arrow-up"></td>
+        </tr>
+        <tr>
+          <td>Ultimateman</td>
+          <td>31/05/2025</td>
+          <td>6,7 km / 120 D+ x tours</td>
+          <td>17 tours</td>
+          <td class="arrow-stable"></td>
+        </tr>
+        <tr>
+          <td>Semi Ardèche Run</td>
+          <td>21/06/2025</td>
+          <td>21,7 km / 550 D+</td>
+          <td>2h05</td>
+          <td class="arrow-down"></td>
+        </tr>
+        <tr>
+          <td>Trail de l’Ebron</td>
+          <td>12/07/2025</td>
+          <td>16 km / 750 D+</td>
+          <td>1h58</td>
+          <td class="arrow-up"></td>
+        </tr>
+        <tr>
+          <td>Veni Vici</td>
+          <td>08/11/2025</td>
+          <td>27 km / 700 D+</td>
+          <td>3h10</td>
+          <td class="arrow-stable"></td>
+        </tr>
+        <tr>
+          <td>Gruissan</td>
+          <td>08/12/2025</td>
+          <td>12 km / 250 D+</td>
+          <td>1h05</td>
+          <td class="arrow-down"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
