@@ -1,32 +1,59 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CoachTrail</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>CoachTrail</h1>
-        <p>Ton assistant d'entraînement trail personnalisé</p>
-    </header>
-    <main>
-        <section id="dashboard">
-            <h2>Résumé</h2>
-            <div id="ipc"></div>
-            <div id="ies"></div>
-            <div id="previsions"></div>
-        </section>
-        <section id="data-upload">
-            <h2>Synchronisation</h2>
-            <button onclick="syncGarmin()">Garmin</button>
-            <button onclick="syncKubios()">Kubios HRV</button>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 CoachTrail</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="max-w-md mx-auto mt-8 p-4 bg-white rounded-2xl shadow-xl">
+      <h1 class="text-3xl font-bold mb-4 text-center">CoachTrail</h1>
+      <p class="text-center text-sm text-gray-600 mb-6">Préparation trail personnalisée</p><div class="grid grid-cols-2 gap-4 mb-6">
+    <div class="bg-gray-100 p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold">VO2max</h2>
+      <p class="text-2xl text-blue-600">50</p>
+    </div>
+    <div class="bg-gray-100 p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold">Fatigue (IES)</h2>
+      <p class="text-2xl text-yellow-500">31</p>
+    </div>
+    <div class="bg-gray-100 p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold">Prépa (IPC)</h2>
+      <p class="text-2xl text-green-600">77</p>
+    </div>
+    <div class="bg-gray-100 p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold">Charge semaine</h2>
+      <p class="text-2xl text-purple-500">450</p>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-xl font-bold mb-2">Prochaine course</h2>
+    <div class="bg-yellow-100 p-4 rounded-xl shadow">
+      <p><strong>Trail de Juliau</strong> - 21 km / 900 D+</p>
+      <p>Estimation : <span class="text-blue-600 font-semibold">2h42</span></p>
+      <p>Date : 20 avril 2025</p>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-xl font-bold mb-2">Agenda de la semaine</h2>
+    <ul class="text-sm list-disc pl-5 space-y-1">
+      <li>Lundi : Sortie tempo 6 km + gainage</li>
+      <li>Mardi : Muscu bas du corps</li>
+      <li>Mercredi : Intervalles trail 8x1'</li>
+      <li>Jeudi : Repos</li>
+      <li>Vendredi : Rando active 1h</li>
+      <li>Samedi : Renfo fonctionnel</li>
+      <li>Dimanche : Sortie longue 16 km / 700 D+</li>
+    </ul>
+  </div>
+
+  <footer class="text-xs text-gray-400 text-center mt-4">
+    Données issues de Garmin & Kubios - Mise à jour quotidienne
+  </footer>
+</div>
+
+  </body>
 </html>
