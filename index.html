@@ -1,59 +1,88 @@
-<!DOCTYPE html><html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CoachTrail</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
-  <body class="bg-gray-100 font-sans">
-    <div class="max-w-md mx-auto mt-8 p-4 bg-white rounded-2xl shadow-xl">
-      <h1 class="text-3xl font-bold mb-4 text-center">CoachTrail</h1>
-      <p class="text-center text-sm text-gray-600 mb-6">Préparation trail personnalisée</p><div class="grid grid-cols-2 gap-4 mb-6">
-    <div class="bg-gray-100 p-4 rounded-xl shadow">
-      <h2 class="text-lg font-semibold">VO2max</h2>
-      <p class="text-2xl text-blue-600">50</p>
-    </div>
-    <div class="bg-gray-100 p-4 rounded-xl shadow">
-      <h2 class="text-lg font-semibold">Fatigue (IES)</h2>
-      <p class="text-2xl text-yellow-500">31</p>
-    </div>
-    <div class="bg-gray-100 p-4 rounded-xl shadow">
-      <h2 class="text-lg font-semibold">Prépa (IPC)</h2>
-      <p class="text-2xl text-green-600">77</p>
-    </div>
-    <div class="bg-gray-100 p-4 rounded-xl shadow">
-      <h2 class="text-lg font-semibold">Charge semaine</h2>
-      <p class="text-2xl text-purple-500">450</p>
-    </div>
-  </div>
+// CoachTrail WebApp - Mise à jour complète
 
-  <div class="mb-6">
-    <h2 class="text-xl font-bold mb-2">Prochaine course</h2>
-    <div class="bg-yellow-100 p-4 rounded-xl shadow">
-      <p><strong>Trail de Juliau</strong> - 21 km / 900 D+</p>
-      <p>Estimation : <span class="text-blue-600 font-semibold">2h42</span></p>
-      <p>Date : 20 avril 2025</p>
-    </div>
-  </div>
+import { useState, useEffect } from 'react'; import { Card, CardContent } from '@/components/ui/card'; import { Button } from '@/components/ui/button'; import { Calendar } from '@/components/ui/calendar'; import { Progress } from '@/components/ui/progress'; import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 
-  <div class="mb-6">
-    <h2 class="text-xl font-bold mb-2">Agenda de la semaine</h2>
-    <ul class="text-sm list-disc pl-5 space-y-1">
-      <li>Lundi : Sortie tempo 6 km + gainage</li>
-      <li>Mardi : Muscu bas du corps</li>
-      <li>Mercredi : Intervalles trail 8x1'</li>
-      <li>Jeudi : Repos</li>
-      <li>Vendredi : Rando active 1h</li>
-      <li>Samedi : Renfo fonctionnel</li>
-      <li>Dimanche : Sortie longue 16 km / 700 D+</li>
-    </ul>
-  </div>
+export default function CoachTrail() { const [ipc, setIPC] = useState(78); const [ies, setIES] = useState(6.2); const [charge, setCharge] = useState(840); const [vo2max, setVO2Max] = useState(50); const [selectedDate, setSelectedDate] = useState(new Date()); const [agenda, setAgenda] = useState([ { date: '2025-04-14', type: 'Renfo bas du corps', duration: '40 min', zone: '1-2' }, { date: '2025-04-15', type: 'Sortie côtes trail', duration: '50 min', zone: '4' }, { date: '2025-04-16', type: 'Repos', duration: '-', zone: '-' }, { date: '2025-04-17', type: 'Sortie allure Juliau', duration: '1h', zone: '3' }, { date: '2025-04-18', type: 'Renfo haut du corps', duration: '30 min', zone: '1-2' }, { date: '2025-04-19', type: 'Sortie Z1/technique', duration: '40 min', zone: '1' }, { date: '2025-04-20', type: 'Trail de Juliau – 21 km / 900 D+', duration: 'Course', zone: 'Course' } ]);
 
-  <footer class="text-xs text-gray-400 text-center mt-4">
-    Données issues de Garmin & Kubios - Mise à jour quotidienne
-  </footer>
+return ( <div className="p-4 space-y-4"> <h1 className="text-2xl font-bold">CoachTrail – Suivi Performance</h1> <Tabs defaultValue="dashboard"> <TabsList> <TabsTrigger value="dashboard">Préparation</TabsTrigger> <TabsTrigger value="agenda">Agenda</TabsTrigger> <TabsTrigger value="barèmes">Barèmes</TabsTrigger> </TabsList>
+
+<TabsContent value="dashboard">
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="font-semibold">Indice de Préparation Course (IPC)</h2>
+            <Progress value={ipc} className="my-2" />
+            <p className="text-sm">Actuellement : {ipc} / 100</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="font-semibold">Indice d'État de Stimulation (IES)</h2>
+            <Progress value={ies * 10} className="my-2" />
+            <p className="text-sm">IES : {ies} / 10</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="font-semibold">Charge Hebdomadaire</h2>
+            <Progress value={charge / 20} className="my-2" />
+            <p className="text-sm">{charge} pts / Objectif : 1200–1500</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="font-semibold">VO2Max estimée</h2>
+            <p className="text-3xl font-bold">{vo2max} ml/kg/min</p>
+          </CardContent>
+        </Card>
+      </div>
+    </TabsContent>
+
+    <TabsContent value="agenda">
+      <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} className="mb-4" />
+      <div className="space-y-2">
+        {agenda.filter(a => a.date === selectedDate.toISOString().slice(0, 10)).map((event, i) => (
+          <Card key={i}>
+            <CardContent className="p-4">
+              <h3 className="font-semibold">{event.type}</h3>
+              <p>Durée : {event.duration}</p>
+              <p>Zone : {event.zone}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </TabsContent>
+
+    <TabsContent value="barèmes">
+      <div className="grid gap-4 md:grid-cols-3">
+        <Card><CardContent className="p-4">
+          <h2 className="font-semibold">IPC</h2>
+          <ul className="text-sm list-disc ml-4">
+            <li>90–100 : prêt à performer</li>
+            <li>75–89 : bonne forme</li>
+            <li>60–74 : en progression</li>
+            <li>&lt;60 : en construction</li>
+          </ul>
+        </CardContent></Card>
+        <Card><CardContent className="p-4">
+          <h2 className="font-semibold">IES</h2>
+          <ul className="text-sm list-disc ml-4">
+            <li>8–10 : attention surmenage</li>
+            <li>5–7 : charge adaptée</li>
+            <li>&lt;5 : sous-entraînement</li>
+          </ul>
+        </CardContent></Card>
+        <Card><CardContent className="p-4">
+          <h2 className="font-semibold">Charge hebdo – 21km/900D+</h2>
+          <ul className="text-sm list-disc ml-4">
+            <li>6–8h / semaine</li>
+            <li>1500–2500D+ cumulé</li>
+          </ul>
+        </CardContent></Card>
+      </div>
+    </TabsContent>
+  </Tabs>
 </div>
 
-  </body>
-</html>
+); }
+
