@@ -5,100 +5,102 @@
   <title>CoachTrail - Tableau de bord</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
       margin: 0;
       padding: 0;
-      background-color: #121212;
-      color: #ffffff;
     }
     header {
       background-color: #1f1f1f;
       padding: 1rem;
       text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-bottom: 1px solid #333;
     }
-    section {
+    .section {
       padding: 1rem;
+      border-bottom: 1px solid #333;
     }
-    h2 {
-      color: #00c853;
-    }
-    .card {
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    .indicator {
-      display: flex;
-      justify-content: space-between;
+    .title {
+      font-size: 1.2rem;
       margin-bottom: 0.5rem;
+      color: #03dac5;
     }
-    .arrow-up { color: #00e676; }
-    .arrow-down { color: #ff5252; }
-    .arrow-flat { color: #ffc107; }
+    .box {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #bb86fc;
+    }
+    .indicator-up { color: #00e676; }
+    .indicator-down { color: #ff1744; }
+    .indicator-flat { color: #ffc400; }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
     }
     th, td {
       padding: 0.5rem;
-      text-align: center;
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid #333;
     }
     th {
-      background-color: #333;
+      background-color: #222;
+      color: #bbb;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CoachTrail - Suivi de préparation</h1>
-  </header>
-  <section>
-    <div class="card">
-      <h2>Préparation actuelle</h2>
-      <div class="indicator">IPC : <strong>81</strong>/100</div>
-      <div class="indicator">IES (Fatigue) : <strong>36</strong>/100</div>
-      <div class="indicator">VO2max estimée : <strong>50 ml/kg/min</strong></div>
-    </div><div class="card">
-  <h2>Objectifs 2025</h2>
-  <table>
-    <thead>
-      <tr><th>Date</th><th>Course</th><th>Distance</th><th>D+</th><th>Estimation</th><th>Tendance</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>20/04</td><td>Trail de Juliau</td><td>21 km</td><td>900 m</td><td>2h25</td><td class="arrow-up">↑</td></tr>
-      <tr><td>31/05</td><td>Ultimateman</td><td>6,7 km x N</td><td>120 m x N</td><td>10 tours</td><td class="arrow-flat">→</td></tr>
-      <tr><td>21/06</td><td>Ardèche Run</td><td>21,7 km</td><td>550 m</td><td>1h58</td><td class="arrow-up">↑</td></tr>
-      <tr><td>12/07</td><td>Trail de l'Ebron</td><td>16 km</td><td>750 m</td><td>1h45</td><td class="arrow-up">↑</td></tr>
-      <tr><td>08/11</td><td>Veni Vici</td><td>27 km</td><td>700 m</td><td>2h55</td><td class="arrow-flat">→</td></tr>
-      <tr><td>08/12</td><td>Trail de Gruissan</td><td>12 km</td><td>250 m</td><td>1h00</td><td class="arrow-flat">→</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="card">
-  <h2>Planning Semaine</h2>
-  <ul>
-    <li>Dim : Sortie longue 16 km D+700 (terrain technique)</li>
-    <li>Lun : Footing Z1 6 km + mobilité</li>
-    <li>Mar : Renfo bas du corps + 20 min Z1</li>
-    <li>Mer : 10x30s côte 10% sentier</li>
-    <li>Jeu : Renfo haut du corps + gainage</li>
-    <li>Ven : Footing 40 min Z2-Z3</li>
-    <li>Sam : Renfo fonctionnel + mobilité</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2>Barèmes indicateurs</h2>
-  <p><strong>IPC :</strong> >85 excellent, 70-85 bon, <70 amélioration nécessaire</p>
-  <p><strong>IES :</strong> <35 OK, 35-60 fatigue, >60 surmenage</p>
-  <p><strong>Charge hebdo :</strong> 350–450 optimal pré-course</p>
-</div>
-
-  </section>
+  <header>CoachTrail - Tableau de bord</header>  <div class="section">
+    <div class="title">Prévisions Objectifs Courses</div>
+    <div class="box">
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Distance</th>
+            <th>D+</th>
+            <th>Prévision</th>
+            <th>Tendance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Trail de Juliau</td><td>20/04/2025</td><td>21 km</td><td>900 D+</td><td>2h45</td><td><span class="indicator-flat">=</span></td></tr>
+          <tr><td>Ultimateman</td><td>31/05/2025</td><td>6,7 km</td><td>120 D+</td><td>10 tours</td><td><span class="indicator-up">↑</span></td></tr>
+          <tr><td>Ardèche Run</td><td>21/06/2025</td><td>21,7 km</td><td>550 D+</td><td>2h15</td><td><span class="indicator-flat">=</span></td></tr>
+          <tr><td>Trail de l'Ebron</td><td>12/07/2025</td><td>16 km</td><td>750 D+</td><td>1h55</td><td><span class="indicator-up">↑</span></td></tr>
+          <tr><td>Trail Veni Vici</td><td>08/11/2025</td><td>27 km</td><td>700 D+</td><td>3h10</td><td><span class="indicator-flat">=</span></td></tr>
+          <tr><td>Gruissan</td><td>08/12/2025</td><td>12 km</td><td>250 D+</td><td>1h05</td><td><span class="indicator-flat">=</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>  <div class="section">
+    <div class="title">Indicateurs Physiologiques</div>
+    <div class="box">
+      <p>VO2max estimée : <span class="highlight">50 ml/kg/min</span> (Excellent)</p>
+      <p>Indice de Préparation à la Course (IPC) : <span class="highlight">87 / 100</span> (Très bon)</p>
+      <p>Indice de fatigue (IES) : <span class="highlight">34 / 100</span> (Fatigue maîtrisée)</p>
+    </div>
+  </div>  <div class="section">
+    <div class="title">Agenda 7 Jours</div>
+    <div class="box">
+      <ul>
+        <li><strong>Dimanche</strong> : Sortie longue – 16 km / 700 D+ (trail technique)</li>
+        <li><strong>Lundi</strong> : Repos actif – 40 min Z1</li>
+        <li><strong>Mardi</strong> : Muscu bas du corps + 25 min Z2</li>
+        <li><strong>Mercredi</strong> : Fractionné côte – 10x30" côte / récup descente</li>
+        <li><strong>Jeudi</strong> : Mobilité + Renfo gainage</li>
+        <li><strong>Vendredi</strong> : Seuil – 2x8 min Z4 (terrain mixte)</li>
+        <li><strong>Samedi</strong> : Rando active ou repos complet</li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
