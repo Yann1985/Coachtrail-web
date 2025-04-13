@@ -1,125 +1,105 @@
 <!DOCTYPE html><html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Objectifs Trail</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoachTrail - Prévisions & Indicateurs</title>
   <style>
     body {
       background-color: #121212;
-      color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 1rem;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .table-container {
-      overflow-x: auto;
+    h1, h2 {
+      color: #90caf9;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      overflow: hidden;
+      margin-top: 1rem;
     }
     th, td {
       padding: 0.75rem;
-      text-align: left;
       border-bottom: 1px solid #333;
+      text-align: center;
     }
     th {
-      background-color: #222;
-      color: #ccc;
-      font-weight: 600;
+      background-color: #1f1f1f;
+      color: #f5f5f5;
     }
-    tr:hover {
-      background-color: #2a2a2a;
-    }
-    .arrow-up::after {
-      content: "\25B2";
-      color: #4caf50;
-      margin-left: 0.5rem;
-    }
-    .arrow-down::after {
-      content: "\25BC";
-      color: #f44336;
-      margin-left: 0.5rem;
-    }
-    .arrow-stable::after {
-      content: "\2014";
-      color: #aaa;
-      margin-left: 0.5rem;
-    }
-    .tag {
-      background: #333;
-      padding: 0.3rem 0.6rem;
+    .arrow-up { color: #4caf50; }
+    .arrow-down { color: #f44336; }
+    .arrow-stable { color: #ffc107; }
+    .bar {
+      display: inline-block;
+      height: 10px;
+      background: #90caf9;
       border-radius: 4px;
-      font-size: 0.85rem;
-      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <h1>Prévisions Objectifs Trail</h1>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Course</th>
-          <th>Date</th>
-          <th>Distance / D+</th>
-          <th>Estimation</th>
-          <th>Évolution</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Trail de Juliau</td>
-          <td>20/04/2025</td>
-          <td>21 km / 900 D+</td>
-          <td>2h37</td>
-          <td class="arrow-up"></td>
-        </tr>
-        <tr>
-          <td>Ultimateman</td>
-          <td>31/05/2025</td>
-          <td>6,7 km / 120 D+ x tours</td>
-          <td>17 tours</td>
-          <td class="arrow-stable"></td>
-        </tr>
-        <tr>
-          <td>Semi Ardèche Run</td>
-          <td>21/06/2025</td>
-          <td>21,7 km / 550 D+</td>
-          <td>2h05</td>
-          <td class="arrow-down"></td>
-        </tr>
-        <tr>
-          <td>Trail de l’Ebron</td>
-          <td>12/07/2025</td>
-          <td>16 km / 750 D+</td>
-          <td>1h58</td>
-          <td class="arrow-up"></td>
-        </tr>
-        <tr>
-          <td>Veni Vici</td>
-          <td>08/11/2025</td>
-          <td>27 km / 700 D+</td>
-          <td>3h10</td>
-          <td class="arrow-stable"></td>
-        </tr>
-        <tr>
-          <td>Gruissan</td>
-          <td>08/12/2025</td>
-          <td>12 km / 250 D+</td>
-          <td>1h05</td>
-          <td class="arrow-down"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h1>Prévisions de Course</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Date</th>
+        <th>Distance / D+</th>
+        <th>Estimation Actuelle</th>
+        <th>Tendance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Trail de Juliau</td><td>20/04/2025</td><td>21 km / 900 D+</td><td>2h36</td><td class="arrow-up">▲</td></tr>
+      <tr><td>Ultimateman</td><td>31/05/2025</td><td>6,7 km / 120 D+ / h</td><td>19 tours</td><td class="arrow-stable">–</td></tr>
+      <tr><td>Ardèche Run</td><td>21/06/2025</td><td>21,7 km / 550 D+</td><td>2h02</td><td class="arrow-down">▼</td></tr>
+      <tr><td>Trail de l’Ebron</td><td>12/07/2025</td><td>16 km / 750 D+</td><td>1h49</td><td class="arrow-stable">–</td></tr>
+      <tr><td>Veni Vici</td><td>08/11/2025</td><td>27 km / 700 D+</td><td>2h49</td><td class="arrow-up">▲</td></tr>
+      <tr><td>Trail de Gruissan</td><td>08/12/2025</td><td>12 km / 250 D+</td><td>1h03</td><td class="arrow-up">▲</td></tr>
+    </tbody>
+  </table>  <h2>Indicateurs de Préparation</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Indicateur</th>
+        <th>Valeur</th>
+        <th>Barème</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>IPC (Préparation)</td>
+        <td>85</td>
+        <td><span class="bar" style="width: 85%;"></span> (80-100 : prêt)</td>
+      </tr>
+      <tr>
+        <td>IES (Fatigue)</td>
+        <td>23</td>
+        <td><span class="bar" style="width: 23%; background: #4caf50"></span> (0-30 : légère)</td>
+      </tr>
+      <tr>
+        <td>Charge hebdo</td>
+        <td>594 TSS</td>
+        <td><span class="bar" style="width: 59%; background: #90caf9"></span> (550-650 : optimal)</td>
+      </tr>
+      <tr>
+        <td>VO2 max estimée</td>
+        <td>50 ml/kg/min</td>
+        <td>Excellente pour l'âge (40 ans)</td>
+      </tr>
+      <tr>
+        <td>Coût énergétique</td>
+        <td>73 kcal/km/100D+</td>
+        <td><span class="bar" style="width: 73%; background: #ffc107"></span> (objectif < 70)</td>
+      </tr>
+      <tr>
+        <td>Indice descente</td>
+        <td>74%</td>
+        <td><span class="bar" style="width: 74%; background: #90caf9"></span> (objectif > 80%)</td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>
