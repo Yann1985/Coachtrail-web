@@ -1,18 +1,22 @@
 <!DOCTYPE html><html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoachTrail - Prévisions & Indicateurs</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoachTrail - Tableau de bord</title>
   <style>
     body {
       background-color: #121212;
       color: #e0e0e0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 1rem;
     }
     h1, h2 {
       color: #90caf9;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
     }
     table {
       width: 100%;
@@ -21,85 +25,110 @@
     }
     th, td {
       padding: 0.75rem;
-      border-bottom: 1px solid #333;
       text-align: center;
+      border-bottom: 1px solid #333;
     }
     th {
-      background-color: #1f1f1f;
-      color: #f5f5f5;
+      background-color: #1e1e1e;
+      color: #ffffff;
     }
-    .arrow-up { color: #4caf50; }
-    .arrow-down { color: #f44336; }
-    .arrow-stable { color: #ffc107; }
+    .trend-up { color: #66bb6a; }
+    .trend-down { color: #ef5350; }
+    .trend-neutral { color: #b0bec5; }
     .bar {
-      display: inline-block;
       height: 10px;
-      background: #90caf9;
+      background: linear-gradient(to right, #64b5f6, #1e88e5);
+      border-radius: 5px;
+    }
+    .bar-label {
+      font-size: 0.8rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .sync-btn {
+      padding: 0.5rem 1rem;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
       border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .sync-btn:hover {
+      background-color: #1565c0;
     }
   </style>
 </head>
 <body>
-  <h1>Prévisions de Course</h1>
+  <div class="container">
+    <h1>CoachTrail - Préparation & Suivi</h1><div class="section">
+  <h2>Prévisions de course</h2>
   <table>
     <thead>
       <tr>
         <th>Course</th>
         <th>Date</th>
         <th>Distance / D+</th>
-        <th>Estimation Actuelle</th>
+        <th>Prévision</th>
         <th>Tendance</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Trail de Juliau</td><td>20/04/2025</td><td>21 km / 900 D+</td><td>2h36</td><td class="arrow-up">▲</td></tr>
-      <tr><td>Ultimateman</td><td>31/05/2025</td><td>6,7 km / 120 D+ / h</td><td>19 tours</td><td class="arrow-stable">–</td></tr>
-      <tr><td>Ardèche Run</td><td>21/06/2025</td><td>21,7 km / 550 D+</td><td>2h02</td><td class="arrow-down">▼</td></tr>
-      <tr><td>Trail de l’Ebron</td><td>12/07/2025</td><td>16 km / 750 D+</td><td>1h49</td><td class="arrow-stable">–</td></tr>
-      <tr><td>Veni Vici</td><td>08/11/2025</td><td>27 km / 700 D+</td><td>2h49</td><td class="arrow-up">▲</td></tr>
-      <tr><td>Trail de Gruissan</td><td>08/12/2025</td><td>12 km / 250 D+</td><td>1h03</td><td class="arrow-up">▲</td></tr>
-    </tbody>
-  </table>  <h2>Indicateurs de Préparation</h2>
-  <table>
-    <thead>
       <tr>
-        <th>Indicateur</th>
-        <th>Valeur</th>
-        <th>Barème</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>IPC (Préparation)</td>
-        <td>85</td>
-        <td><span class="bar" style="width: 85%;"></span> (80-100 : prêt)</td>
+        <td>Trail de Juliau</td>
+        <td>20/04/2025</td>
+        <td>21 km / 900 D+</td>
+        <td>2h33</td>
+        <td><span class="trend-up">▲</span></td>
       </tr>
       <tr>
-        <td>IES (Fatigue)</td>
-        <td>23</td>
-        <td><span class="bar" style="width: 23%; background: #4caf50"></span> (0-30 : légère)</td>
+        <td>Ultimateman</td>
+        <td>31/05/2025</td>
+        <td>6,7 km x tours</td>
+        <td>13 tours</td>
+        <td><span class="trend-neutral">▬</span></td>
       </tr>
       <tr>
-        <td>Charge hebdo</td>
-        <td>594 TSS</td>
-        <td><span class="bar" style="width: 59%; background: #90caf9"></span> (550-650 : optimal)</td>
-      </tr>
-      <tr>
-        <td>VO2 max estimée</td>
-        <td>50 ml/kg/min</td>
-        <td>Excellente pour l'âge (40 ans)</td>
-      </tr>
-      <tr>
-        <td>Coût énergétique</td>
-        <td>73 kcal/km/100D+</td>
-        <td><span class="bar" style="width: 73%; background: #ffc107"></span> (objectif < 70)</td>
-      </tr>
-      <tr>
-        <td>Indice descente</td>
-        <td>74%</td>
-        <td><span class="bar" style="width: 74%; background: #90caf9"></span> (objectif > 80%)</td>
+        <td>Semi Ardèche Run</td>
+        <td>21/06/2025</td>
+        <td>21,7 km / 550 D+</td>
+        <td>2h07</td>
+        <td><span class="trend-up">▲</span></td>
       </tr>
     </tbody>
   </table>
-</body>
+</div>
+
+<div class="section">
+  <h2>Indicateurs</h2>
+  <p>Indice de Préparation Course (IPC) : 82/100</p>
+  <p>Indice d'État de Stimulation (IES) : 68/100</p>
+  <p>Charge hebdo : <span class="bar" style="width: 70%"></span> <span class="bar-label">70%</span></p>
+</div>
+
+<div class="section">
+  <h2>Synchronisation</h2>
+  <p>Pour synchroniser tes données Kubios et Garmin, clique ici :</p>
+  <button class="sync-btn" onclick="syncData()">Synchroniser mes données</button>
+</div>
+
+<div class="section">
+  <h2>Agenda hebdomadaire</h2>
+  <ul>
+    <li>Lundi : Sortie vallonnée Z1 (6 km)</li>
+    <li>Mardi : Renforcement bas du corps + mobilité</li>
+    <li>Mercredi : 10x30s côte + récup 1’</li>
+    <li>Jeudi : Repos</li>
+    <li>Vendredi : Seuil 2x10min (Z3/4)</li>
+    <li>Samedi : Renfo haut du corps + gainage</li>
+    <li>Dimanche : Sortie longue 16 km / 700D+</li>
+  </ul>
+</div>
+
+  </div>  <script>
+    function syncData() {
+      alert("Fonction de synchronisation à connecter à Garmin & Kubios via API OAuth sécurisée.");
+    }
+  </script></body>
 </html>
