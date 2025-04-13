@@ -2,133 +2,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoachTrail - Tableau de bord</title>
+  <title>CoachTrail – Tableau de bord</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', sans-serif;
+      color: #f1f1f1;
       margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    main {
       padding: 1rem;
     }
-    h1, h2 {
-      color: #90caf9;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
+    h2 {
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
     }
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 1rem;
+      background-color: #1c1c1c;
     }
     th, td {
       padding: 0.75rem;
-      text-align: center;
       border-bottom: 1px solid #333;
+      text-align: center;
     }
-    th {
-      background-color: #1e1e1e;
-      color: #ffffff;
-    }
-    .trend-up { color: #66bb6a; }
-    .trend-down { color: #ef5350; }
-    .trend-neutral { color: #b0bec5; }
+    .arrow-up { color: #4caf50; }
+    .arrow-down { color: #f44336; }
+    .arrow-flat { color: #ccc; }
     .bar {
+      display: inline-block;
       height: 10px;
-      background: linear-gradient(to right, #64b5f6, #1e88e5);
-      border-radius: 5px;
+      border-radius: 4px;
     }
-    .bar-label {
-      font-size: 0.8rem;
-    }
-    .section {
-      margin-bottom: 2rem;
+    .bar.ipc { background-color: #4caf50; }
+    .bar.ies { background-color: #2196f3; }
+    .bar.charge { background-color: #ff9800; }
+    .indicator-box {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background: #1a1a1a;
+      border-left: 4px solid #4caf50;
     }
     .sync-btn {
-      padding: 0.5rem 1rem;
-      background-color: #1e88e5;
+      margin: 1rem auto;
+      display: block;
+      background-color: #4caf50;
       color: white;
+      padding: 0.5rem 1rem;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      margin-top: 1rem;
     }
     .sync-btn:hover {
-      background-color: #1565c0;
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>CoachTrail - Préparation & Suivi</h1><div class="section">
-  <h2>Prévisions de course</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Course</th>
-        <th>Date</th>
-        <th>Distance / D+</th>
-        <th>Prévision</th>
-        <th>Tendance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Trail de Juliau</td>
-        <td>20/04/2025</td>
-        <td>21 km / 900 D+</td>
-        <td>2h33</td>
-        <td><span class="trend-up">▲</span></td>
-      </tr>
-      <tr>
-        <td>Ultimateman</td>
-        <td>31/05/2025</td>
-        <td>6,7 km x tours</td>
-        <td>13 tours</td>
-        <td><span class="trend-neutral">▬</span></td>
-      </tr>
-      <tr>
-        <td>Semi Ardèche Run</td>
-        <td>21/06/2025</td>
-        <td>21,7 km / 550 D+</td>
-        <td>2h07</td>
-        <td><span class="trend-up">▲</span></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <header>
+    CoachTrail – Tableau de bord
+  </header>
+  <main>
+    <h2>Objectifs de course & prévisions</h2>
+    <table>
+      <tr><th>Course</th><th>Date</th><th>Distance / D+</th><th>Estimation</th><th>Tendance</th></tr>
+      <tr><td>Trail du Juliau</td><td>20/04/2025</td><td>21 km / 900D+</td><td>2h34</td><td><span class="arrow-flat">→</span></td></tr>
+      <tr><td>Ultimateman</td><td>31/05/2025</td><td>Backyard 6,7 km / 120D+</td><td>16 tours</td><td><span class="arrow-up">↑</span></td></tr>
+      <tr><td>Semi Ardèche Run</td><td>21/06/2025</td><td>21,7 km / 550D+</td><td>2h09</td><td><span class="arrow-flat">→</span></td></tr>
+      <tr><td>Trail de l’Ebron</td><td>12/07/2025</td><td>16 km / 750D+</td><td>1h54</td><td><span class="arrow-flat">→</span></td></tr>
+      <tr><td>Veni Vici</td><td>08/11/2025</td><td>27 km / 700D+</td><td>3h07</td><td><span class="arrow-flat">→</span></td></tr>
+      <tr><td>Trail de Gruissan</td><td>08/12/2025</td><td>12 km / 250D+</td><td>1h04</td><td><span class="arrow-flat">→</span></td></tr>
+    </table><h2>Indicateurs de forme</h2>
+<div class="indicator-box">IPC (Préparation) : <strong>82 / 100</strong><div class="bar ipc" style="width: 82%"></div></div>
+<div class="indicator-box">IES (Stimulation) : <strong>56 / 100</strong><div class="bar ies" style="width: 56%"></div></div>
+<div class="indicator-box">Charge hebdo : <strong>480 TSS</strong><div class="bar charge" style="width: 60%"></div></div>
 
-<div class="section">
-  <h2>Indicateurs</h2>
-  <p>Indice de Préparation Course (IPC) : 82/100</p>
-  <p>Indice d'État de Stimulation (IES) : 68/100</p>
-  <p>Charge hebdo : <span class="bar" style="width: 70%"></span> <span class="bar-label">70%</span></p>
-</div>
+<h2>Barèmes indicateurs</h2>
+<table>
+  <tr><th>Indice</th><th>Faible</th><th>Correct</th><th>Optimal</th><th>Élevé</th></tr>
+  <tr><td>IPC</td><td>&lt; 60</td><td>60–75</td><td>75–90</td><td>&gt; 90</td></tr>
+  <tr><td>IES</td><td>&lt; 40</td><td>40–60</td><td>60–80</td><td>&gt; 80</td></tr>
+  <tr><td>Charge hebdo</td><td>&lt; 300</td><td>300–450</td><td>450–600</td><td>&gt; 600</td></tr>
+</table>
 
-<div class="section">
-  <h2>Synchronisation</h2>
-  <p>Pour synchroniser tes données Kubios et Garmin, clique ici :</p>
-  <button class="sync-btn" onclick="syncData()">Synchroniser mes données</button>
-</div>
+<h2>Synchronisation</h2>
+<button class="sync-btn">Synchroniser avec Garmin / Kubios</button>
 
-<div class="section">
-  <h2>Agenda hebdomadaire</h2>
-  <ul>
-    <li>Lundi : Sortie vallonnée Z1 (6 km)</li>
-    <li>Mardi : Renforcement bas du corps + mobilité</li>
-    <li>Mercredi : 10x30s côte + récup 1’</li>
-    <li>Jeudi : Repos</li>
-    <li>Vendredi : Seuil 2x10min (Z3/4)</li>
-    <li>Samedi : Renfo haut du corps + gainage</li>
-    <li>Dimanche : Sortie longue 16 km / 700D+</li>
-  </ul>
-</div>
-
-  </div>  <script>
-    function syncData() {
-      alert("Fonction de synchronisation à connecter à Garmin & Kubios via API OAuth sécurisée.");
-    }
-  </script></body>
+  </main>
+</body>
 </html>
