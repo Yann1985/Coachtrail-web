@@ -1,73 +1,116 @@
-import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Tabs, TabsList, TabsTrigger, TabsContent, } from "@/components/ui/tabs"; import { Calendar } from "@/components/ui/calendar"; import { useState } from "react";
-
-export default function CoachTrailApp() { const [selectedDate, setSelectedDate] = useState(new Date());
-
-return ( <div className="p-4 space-y-6"> <h1 className="text-3xl font-bold text-center">CoachTrail</h1>
-
-<Tabs defaultValue="dashboard" className="w-full">
-    <TabsList className="grid grid-cols-4 gap-2">
-      <TabsTrigger value="dashboard">Tableau de bord</TabsTrigger>
-      <TabsTrigger value="agenda">Agenda</TabsTrigger>
-      <TabsTrigger value="forecast">Prévisions</TabsTrigger>
-      <TabsTrigger value="data">Données</TabsTrigger>
-    </TabsList>
-
-    <TabsContent value="dashboard">
-      <Card>
-        <CardContent className="p-4 space-y-4">
-          <h2 className="text-xl font-semibold">Indice de Préparation Course (IPC)</h2>
-          <p className="text-2xl font-bold">78 / 100</p>
-          <p className="text-sm">Objectif : Trail Juliau</p>
-
-          <h2 className="text-xl font-semibold">Indice d'État de Stimulation (IES)</h2>
-          <p className="text-2xl font-bold">46 / 100</p>
-          <p className="text-sm">Fatigue modérée</p>
-
-          <h2 className="text-xl font-semibold">Charge hebdomadaire</h2>
-          <p className="text-2xl font-bold">452 TSS</p>
-          <p className="text-sm">Charge optimale</p>
-
-          <h2 className="text-xl font-semibold">VO2max estimée</h2>
-          <p className="text-2xl font-bold">50 ml/kg/min</p>
-          <p className="text-sm">Amélioration continue</p>
-        </CardContent>
-      </Card>
-    </TabsContent>
-
-    <TabsContent value="agenda">
-      <Card>
-        <CardContent className="p-4">
-          <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} className="rounded-md border shadow" />
-        </CardContent>
-      </Card>
-    </TabsContent>
-
-    <TabsContent value="forecast">
-      <Card>
-        <CardContent className="p-4 space-y-4">
-          <h2 className="text-xl font-semibold">Trail de Juliau (20/04)</h2>
-          <p className="text-sm">21 km / 900 D+</p>
-          <p className="text-md font-medium">Prévision actuelle : 2h38</p>
-
-          <h2 className="text-xl font-semibold">Ultimateman (31/05)</h2>
-          <p className="text-sm">Backyard 6,7 km / 120 D+ / objectif : 20 tours</p>
-        </CardContent>
-      </Card>
-    </TabsContent>
-
-    <TabsContent value="data">
-      <Card>
-        <CardContent className="p-4 space-y-2">
-          <p className="text-sm text-muted-foreground">
-            Intégration des données HRV Kubios, Garmin et suivi des séances en cours de synchronisation.
-          </p>
-          <Button variant="outline">Connecter Kubios</Button>
-          <Button variant="outline">Connecter Garmin</Button>
-        </CardContent>
-      </Card>
-    </TabsContent>
-  </Tabs>
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoachTrail - Tableau de bord</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9fb;
+      margin: 0;
+      padding: 1rem;
+      color: #222;
+    }
+    .app-container {
+      max-width: 480px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+      color: #4a4a4a;
+    }
+    p {
+      margin: 0.25rem 0;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #2e6ddf;
+    }
+    .race-section {
+      border-top: 1px solid #eee;
+      padding-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <h1>CoachTrail</h1><div class="section">
+  <h2>Indice de Préparation Course (IPC)</h2>
+  <p class="highlight">78 / 100</p>
+  <p>Objectif : Trail de Juliau</p>
 </div>
 
-); }
+<div class="section">
+  <h2>Indice d'État de Stimulation (IES)</h2>
+  <p class="highlight">46 / 100</p>
+  <p>Fatigue modérée</p>
+</div>
 
+<div class="section">
+  <h2>Charge hebdomadaire</h2>
+  <p class="highlight">452 TSS</p>
+  <p>Charge optimale</p>
+</div>
+
+<div class="section">
+  <h2>VO2max estimée</h2>
+  <p class="highlight">50 ml/kg/min</p>
+  <p>Amélioration continue</p>
+</div>
+
+<div class="section">
+  <h2>Agenda des Courses</h2>
+
+  <div class="race-section">
+    <p><span class="highlight">Trail de Juliau (20/04)</span></p>
+    <p>21 km / 900 D+</p>
+    <p>Prévision actuelle : <strong>2h38</strong></p>
+  </div>
+
+  <div class="race-section">
+    <p><span class="highlight">Ultimateman (31/05)</span></p>
+    <p>Backyard 6.7 km / 120 D+ par tour</p>
+    <p>Objectif : Nombre de tours maximal</p>
+  </div>
+
+  <div class="race-section">
+    <p><span class="highlight">Ardèche Run (21/06)</span></p>
+    <p>21.7 km / 550 D+</p>
+    <p>Prévision : <strong>2h14</strong></p>
+  </div>
+
+  <div class="race-section">
+    <p><span class="highlight">Trail de l'Ebron (12/07)</span></p>
+    <p>16 km / 750 D+</p>
+    <p>Prévision : <strong>1h52</strong></p>
+  </div>
+
+  <div class="race-section">
+    <p><span class="highlight">Veni Vici (08/11)</span></p>
+    <p>27 km / 700 D+</p>
+    <p>Prévision : <strong>3h05</strong></p>
+  </div>
+
+  <div class="race-section">
+    <p><span class="highlight">Trail de Gruissan (08/12)</span></p>
+    <p>12 km / 250 D+</p>
+    <p>Prévision : <strong>1h06</strong></p>
+  </div>
+</div>
+
+  </div>
+</body>
+</html>
