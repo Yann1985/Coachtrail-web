@@ -1,88 +1,73 @@
-import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"; import { Calendar } from "@/components/ui/calendar"; import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Tabs, TabsList, TabsTrigger, TabsContent, } from "@/components/ui/tabs"; import { Calendar } from "@/components/ui/calendar"; import { useState } from "react";
 
 export default function CoachTrailApp() { const [selectedDate, setSelectedDate] = useState(new Date());
 
-return ( <main className="p-4 max-w-3xl mx-auto space-y-6"> <h1 className="text-3xl font-bold text-center">CoachTrail</h1> <Tabs defaultValue="dashboard"> <TabsList className="grid grid-cols-4 w-full"> <TabsTrigger value="dashboard">Tableau de bord</TabsTrigger> <TabsTrigger value="agenda">Agenda</TabsTrigger> <TabsTrigger value="courses">Prévisions</TabsTrigger> <TabsTrigger value="donnees">Données</TabsTrigger> </TabsList>
+return ( <div className="p-4 space-y-6"> <h1 className="text-3xl font-bold text-center">CoachTrail</h1>
 
-<TabsContent value="dashboard">
-      <div className="grid grid-cols-2 gap-4">
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-xl font-semibold">Indice de Préparation Course (IPC)</h2>
-            <p className="text-2xl">78 / 100</p>
-            <p className="text-sm text-muted">Objectif : Trail Juliau</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-xl font-semibold">Indice d'État de Stimulation (IES)</h2>
-            <p className="text-2xl">46 / 100</p>
-            <p className="text-sm text-muted">Fatigue modérée</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-xl font-semibold">Charge hebdomadaire</h2>
-            <p className="text-2xl">452 TSS</p>
-            <p className="text-sm text-muted">Charge optimale</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-xl font-semibold">VO2max estimée</h2>
-            <p className="text-2xl">50 ml/kg/min</p>
-            <p className="text-sm text-muted">Amélioration continue</p>
-          </CardContent>
-        </Card>
-      </div>
+<Tabs defaultValue="dashboard" className="w-full">
+    <TabsList className="grid grid-cols-4 gap-2">
+      <TabsTrigger value="dashboard">Tableau de bord</TabsTrigger>
+      <TabsTrigger value="agenda">Agenda</TabsTrigger>
+      <TabsTrigger value="forecast">Prévisions</TabsTrigger>
+      <TabsTrigger value="data">Données</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="dashboard">
+      <Card>
+        <CardContent className="p-4 space-y-4">
+          <h2 className="text-xl font-semibold">Indice de Préparation Course (IPC)</h2>
+          <p className="text-2xl font-bold">78 / 100</p>
+          <p className="text-sm">Objectif : Trail Juliau</p>
+
+          <h2 className="text-xl font-semibold">Indice d'État de Stimulation (IES)</h2>
+          <p className="text-2xl font-bold">46 / 100</p>
+          <p className="text-sm">Fatigue modérée</p>
+
+          <h2 className="text-xl font-semibold">Charge hebdomadaire</h2>
+          <p className="text-2xl font-bold">452 TSS</p>
+          <p className="text-sm">Charge optimale</p>
+
+          <h2 className="text-xl font-semibold">VO2max estimée</h2>
+          <p className="text-2xl font-bold">50 ml/kg/min</p>
+          <p className="text-sm">Amélioration continue</p>
+        </CardContent>
+      </Card>
     </TabsContent>
 
     <TabsContent value="agenda">
       <Card>
         <CardContent className="p-4">
-          <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} className="rounded-md border" />
+          <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} className="rounded-md border shadow" />
         </CardContent>
       </Card>
     </TabsContent>
 
-    <TabsContent value="courses">
-      <div className="space-y-4">
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-lg font-semibold">Trail de Juliau (20/04)</h2>
-            <p>21 km / 900 D+</p>
-            <p>Prévision actuelle : 2h38</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-lg font-semibold">Ultimateman (31/05)</h2>
-            <p>Backyard 6,7 km / 120 D+</p>
-            <p>Prévision : 17 tours</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-lg font-semibold">Ardèche Run (21/06)</h2>
-            <p>21,7 km / 550 D+</p>
-            <p>Prévision : 2h12</p>
-          </CardContent>
-        </Card>
-      </div>
+    <TabsContent value="forecast">
+      <Card>
+        <CardContent className="p-4 space-y-4">
+          <h2 className="text-xl font-semibold">Trail de Juliau (20/04)</h2>
+          <p className="text-sm">21 km / 900 D+</p>
+          <p className="text-md font-medium">Prévision actuelle : 2h38</p>
+
+          <h2 className="text-xl font-semibold">Ultimateman (31/05)</h2>
+          <p className="text-sm">Backyard 6,7 km / 120 D+ / objectif : 20 tours</p>
+        </CardContent>
+      </Card>
     </TabsContent>
 
-    <TabsContent value="donnees">
+    <TabsContent value="data">
       <Card>
         <CardContent className="p-4 space-y-2">
-          <h2 className="text-xl font-semibold">Connexion & synchronisation</h2>
-          <Button variant="outline">Connecter Garmin</Button>
+          <p className="text-sm text-muted-foreground">
+            Intégration des données HRV Kubios, Garmin et suivi des séances en cours de synchronisation.
+          </p>
           <Button variant="outline">Connecter Kubios</Button>
-          <p className="text-sm text-muted">Les données seront utilisées pour adapter automatiquement l'agenda.</p>
+          <Button variant="outline">Connecter Garmin</Button>
         </CardContent>
       </Card>
     </TabsContent>
   </Tabs>
-</main>
+</div>
 
 ); }
 
