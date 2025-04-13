@@ -1,116 +1,57 @@
-<!DOCTYPE html><html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoachTrail - Tableau de bord</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9fb;
-      margin: 0;
-      padding: 1rem;
-      color: #222;
-    }
-    .app-container {
-      max-width: 480px;
-      margin: auto;
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      padding: 1.5rem;
-    }
-    .section {
-      margin-bottom: 1.5rem;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.25rem;
-      color: #4a4a4a;
-    }
-    p {
-      margin: 0.25rem 0;
-    }
-    .highlight {
-      font-weight: bold;
-      color: #2e6ddf;
-    }
-    .race-section {
-      border-top: 1px solid #eee;
-      padding-top: 0.75rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="app-container">
-    <h1>CoachTrail</h1><div class="section">
-  <h2>Indice de Préparation Course (IPC)</h2>
-  <p class="highlight">78 / 100</p>
-  <p>Objectif : Trail de Juliau</p>
-</div>
+import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Tabs, TabsList, TabsTrigger, TabsContent, } from "@/components/ui/tabs"; import { Calendar } from "@/components/ui/calendar"; import { useState } from "react";
 
-<div class="section">
-  <h2>Indice d'État de Stimulation (IES)</h2>
-  <p class="highlight">46 / 100</p>
-  <p>Fatigue modérée</p>
-</div>
+export default function CoachTrailApp() { const [selectedDate, setSelectedDate] = useState(new Date());
 
-<div class="section">
-  <h2>Charge hebdomadaire</h2>
-  <p class="highlight">452 TSS</p>
-  <p>Charge optimale</p>
-</div>
+return ( <div className="p-4 space-y-4"> <h1 className="text-2xl font-bold">CoachTrail</h1> <div className="space-y-2"> <Tabs defaultValue="dashboard"> <TabsList> <TabsTrigger value="dashboard">Tableau de bord</TabsTrigger> <TabsTrigger value="agenda">Agenda</TabsTrigger> <TabsTrigger value="forecast">Prévisions</TabsTrigger> <TabsTrigger value="data">Données</TabsTrigger> </TabsList>
 
-<div class="section">
-  <h2>VO2max estimée</h2>
-  <p class="highlight">50 ml/kg/min</p>
-  <p>Amélioration continue</p>
-</div>
+<TabsContent value="dashboard">
+        <Card>
+          <CardContent className="p-4 space-y-2">
+            <h2 className="font-bold text-lg">Indice de Préparation Course (IPC)</h2>
+            <p>78 / 100</p>
+            <p>Objectif : Trail Juliau</p>
 
-<div class="section">
-  <h2>Agenda des Courses</h2>
+            <h2 className="font-bold text-lg">Indice d'État de Stimulation (IES)</h2>
+            <p>46 / 100</p>
+            <p>Fatigue modérée</p>
 
-  <div class="race-section">
-    <p><span class="highlight">Trail de Juliau (20/04)</span></p>
-    <p>21 km / 900 D+</p>
-    <p>Prévision actuelle : <strong>2h38</strong></p>
-  </div>
+            <h2 className="font-bold text-lg">Charge hebdomadaire</h2>
+            <p>452 TSS</p>
+            <p>Charge optimale</p>
 
-  <div class="race-section">
-    <p><span class="highlight">Ultimateman (31/05)</span></p>
-    <p>Backyard 6.7 km / 120 D+ par tour</p>
-    <p>Objectif : Nombre de tours maximal</p>
-  </div>
+            <h2 className="font-bold text-lg">VO2max estimée</h2>
+            <p>50 ml/kg/min</p>
+            <p>Amélioration continue</p>
+          </CardContent>
+        </Card>
+      </TabsContent>
 
-  <div class="race-section">
-    <p><span class="highlight">Ardèche Run (21/06)</span></p>
-    <p>21.7 km / 550 D+</p>
-    <p>Prévision : <strong>2h14</strong></p>
-  </div>
+      <TabsContent value="forecast">
+        <Card>
+          <CardContent className="p-4 space-y-2">
+            <h2 className="font-bold text-lg">Prévisions de course</h2>
+            <ul className="space-y-1">
+              <li><strong>Trail de Juliau (20/04)</strong> — 21 km / 900 D+ — Prévision actuelle : 2h38 ⬆️</li>
+              <li><strong>Ultimateman (31/05)</strong> — 6,7 km / 120 D+ — Estimation actuelle : 15 tours ➡️</li>
+              <li><strong>Ardèche Run (21/06)</strong> — 21,7 km / 550 D+ — Prévision actuelle : 2h15 ⬇️</li>
+              <li><strong>Ébron Monteynard (12/07)</strong> — 16 km / 750 D+ — Prévision actuelle : 2h05 ➡️</li>
+              <li><strong>Veni Vici (08/11)</strong> — 27 km / 700 D+ — Prévision actuelle : 2h55 ⬆️</li>
+              <li><strong>Gruissan (08/12)</strong> — 12 km / 250 D+ — Prévision actuelle : 1h04 ➡️</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </TabsContent>
 
-  <div class="race-section">
-    <p><span class="highlight">Trail de l'Ebron (12/07)</span></p>
-    <p>16 km / 750 D+</p>
-    <p>Prévision : <strong>1h52</strong></p>
-  </div>
-
-  <div class="race-section">
-    <p><span class="highlight">Veni Vici (08/11)</span></p>
-    <p>27 km / 700 D+</p>
-    <p>Prévision : <strong>3h05</strong></p>
-  </div>
-
-  <div class="race-section">
-    <p><span class="highlight">Trail de Gruissan (08/12)</span></p>
-    <p>12 km / 250 D+</p>
-    <p>Prévision : <strong>1h06</strong></p>
+      <TabsContent value="agenda">
+        <Card>
+          <CardContent className="p-4">
+            <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} className="rounded-md border" />
+          </CardContent>
+        </Card>
+      </TabsContent>
+    </Tabs>
   </div>
 </div>
 
-  </div>
-</body>
-</html>
+); }
+
