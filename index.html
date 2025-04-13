@@ -1,102 +1,104 @@
 <!DOCTYPE html><html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoachTrail – Tableau de bord</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoachTrail - Tableau de bord</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #f1f1f1;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #121212;
+      color: #ffffff;
     }
     header {
       background-color: #1f1f1f;
       padding: 1rem;
       text-align: center;
-      font-size: 1.5rem;
     }
-    main {
+    section {
       padding: 1rem;
     }
     h2 {
-      border-bottom: 1px solid #333;
-      padding-bottom: 0.5rem;
+      color: #00c853;
     }
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .arrow-up { color: #00e676; }
+    .arrow-down { color: #ff5252; }
+    .arrow-flat { color: #ffc107; }
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 1rem;
-      background-color: #1c1c1c;
     }
     th, td {
-      padding: 0.75rem;
-      border-bottom: 1px solid #333;
-      text-align: center;
-    }
-    .arrow-up { color: #4caf50; }
-    .arrow-down { color: #f44336; }
-    .arrow-flat { color: #ccc; }
-    .bar {
-      display: inline-block;
-      height: 10px;
-      border-radius: 4px;
-    }
-    .bar.ipc { background-color: #4caf50; }
-    .bar.ies { background-color: #2196f3; }
-    .bar.charge { background-color: #ff9800; }
-    .indicator-box {
-      margin-top: 1rem;
       padding: 0.5rem;
-      background: #1a1a1a;
-      border-left: 4px solid #4caf50;
+      text-align: center;
+      border-bottom: 1px solid #444;
     }
-    .sync-btn {
-      margin: 1rem auto;
-      display: block;
-      background-color: #4caf50;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .sync-btn:hover {
-      background-color: #45a049;
+    th {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
   <header>
-    CoachTrail – Tableau de bord
+    <h1>CoachTrail - Suivi de préparation</h1>
   </header>
-  <main>
-    <h2>Objectifs de course & prévisions</h2>
-    <table>
-      <tr><th>Course</th><th>Date</th><th>Distance / D+</th><th>Estimation</th><th>Tendance</th></tr>
-      <tr><td>Trail du Juliau</td><td>20/04/2025</td><td>21 km / 900D+</td><td>2h34</td><td><span class="arrow-flat">→</span></td></tr>
-      <tr><td>Ultimateman</td><td>31/05/2025</td><td>Backyard 6,7 km / 120D+</td><td>16 tours</td><td><span class="arrow-up">↑</span></td></tr>
-      <tr><td>Semi Ardèche Run</td><td>21/06/2025</td><td>21,7 km / 550D+</td><td>2h09</td><td><span class="arrow-flat">→</span></td></tr>
-      <tr><td>Trail de l’Ebron</td><td>12/07/2025</td><td>16 km / 750D+</td><td>1h54</td><td><span class="arrow-flat">→</span></td></tr>
-      <tr><td>Veni Vici</td><td>08/11/2025</td><td>27 km / 700D+</td><td>3h07</td><td><span class="arrow-flat">→</span></td></tr>
-      <tr><td>Trail de Gruissan</td><td>08/12/2025</td><td>12 km / 250D+</td><td>1h04</td><td><span class="arrow-flat">→</span></td></tr>
-    </table><h2>Indicateurs de forme</h2>
-<div class="indicator-box">IPC (Préparation) : <strong>82 / 100</strong><div class="bar ipc" style="width: 82%"></div></div>
-<div class="indicator-box">IES (Stimulation) : <strong>56 / 100</strong><div class="bar ies" style="width: 56%"></div></div>
-<div class="indicator-box">Charge hebdo : <strong>480 TSS</strong><div class="bar charge" style="width: 60%"></div></div>
+  <section>
+    <div class="card">
+      <h2>Préparation actuelle</h2>
+      <div class="indicator">IPC : <strong>81</strong>/100</div>
+      <div class="indicator">IES (Fatigue) : <strong>36</strong>/100</div>
+      <div class="indicator">VO2max estimée : <strong>50 ml/kg/min</strong></div>
+    </div><div class="card">
+  <h2>Objectifs 2025</h2>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Course</th><th>Distance</th><th>D+</th><th>Estimation</th><th>Tendance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>20/04</td><td>Trail de Juliau</td><td>21 km</td><td>900 m</td><td>2h25</td><td class="arrow-up">↑</td></tr>
+      <tr><td>31/05</td><td>Ultimateman</td><td>6,7 km x N</td><td>120 m x N</td><td>10 tours</td><td class="arrow-flat">→</td></tr>
+      <tr><td>21/06</td><td>Ardèche Run</td><td>21,7 km</td><td>550 m</td><td>1h58</td><td class="arrow-up">↑</td></tr>
+      <tr><td>12/07</td><td>Trail de l'Ebron</td><td>16 km</td><td>750 m</td><td>1h45</td><td class="arrow-up">↑</td></tr>
+      <tr><td>08/11</td><td>Veni Vici</td><td>27 km</td><td>700 m</td><td>2h55</td><td class="arrow-flat">→</td></tr>
+      <tr><td>08/12</td><td>Trail de Gruissan</td><td>12 km</td><td>250 m</td><td>1h00</td><td class="arrow-flat">→</td></tr>
+    </tbody>
+  </table>
+</div>
 
-<h2>Barèmes indicateurs</h2>
-<table>
-  <tr><th>Indice</th><th>Faible</th><th>Correct</th><th>Optimal</th><th>Élevé</th></tr>
-  <tr><td>IPC</td><td>&lt; 60</td><td>60–75</td><td>75–90</td><td>&gt; 90</td></tr>
-  <tr><td>IES</td><td>&lt; 40</td><td>40–60</td><td>60–80</td><td>&gt; 80</td></tr>
-  <tr><td>Charge hebdo</td><td>&lt; 300</td><td>300–450</td><td>450–600</td><td>&gt; 600</td></tr>
-</table>
+<div class="card">
+  <h2>Planning Semaine</h2>
+  <ul>
+    <li>Dim : Sortie longue 16 km D+700 (terrain technique)</li>
+    <li>Lun : Footing Z1 6 km + mobilité</li>
+    <li>Mar : Renfo bas du corps + 20 min Z1</li>
+    <li>Mer : 10x30s côte 10% sentier</li>
+    <li>Jeu : Renfo haut du corps + gainage</li>
+    <li>Ven : Footing 40 min Z2-Z3</li>
+    <li>Sam : Renfo fonctionnel + mobilité</li>
+  </ul>
+</div>
 
-<h2>Synchronisation</h2>
-<button class="sync-btn">Synchroniser avec Garmin / Kubios</button>
+<div class="card">
+  <h2>Barèmes indicateurs</h2>
+  <p><strong>IPC :</strong> >85 excellent, 70-85 bon, <70 amélioration nécessaire</p>
+  <p><strong>IES :</strong> <35 OK, 35-60 fatigue, >60 surmenage</p>
+  <p><strong>Charge hebdo :</strong> 350–450 optimal pré-course</p>
+</div>
 
-  </main>
+  </section>
 </body>
 </html>
