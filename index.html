@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoachTrail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>CoachTrail</h1>
+        <p>Ton assistant d'entraînement trail personnalisé</p>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Résumé</h2>
+            <div id="ipc"></div>
+            <div id="ies"></div>
+            <div id="previsions"></div>
+        </section>
+        <section id="data-upload">
+            <h2>Synchronisation</h2>
+            <button onclick="syncGarmin()">Garmin</button>
+            <button onclick="syncKubios()">Kubios HRV</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 CoachTrail</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

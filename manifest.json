@@ -1,0 +1,9 @@
+{
+  "name": "CoachTrail",
+  "short_name": "CoachTrail",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Assistant d'entraînement pour le trail",
+  "icons": []
+}
