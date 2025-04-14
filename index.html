@@ -60,12 +60,12 @@
       margin-top: 1rem;
       padding: 1rem;
       background: #1a1a1a;
-      border-left: 6px solid #4caf50;
+      border-left: 6px solid;
       border-radius: 4px;
     }
-
-    .indicator-box:nth-child(2) { border-left-color: #2196f3; }
-    .indicator-box:nth-child(3) { border-left-color: #ff9800; }
+    .ipc-box { border-left-color: #4caf50; }
+    .ies-box { border-left-color: #2196f3; }
+    .charge-box { border-left-color: #ff9800; }
 
     .sync-btn {
       margin: 2rem auto 0;
@@ -83,14 +83,22 @@
       background-color: #45a049;
     }
 
-    @media (max-width: 600px) {
-      table, th, td {
-        font-size: 0.9rem;
-      }
-      header {
-        font-size: 1.4rem;
-      }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
+    .day-box {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 5px solid #4caf50;
+    }
+    .day-box.rest { border-left-color: #777; }
+    .day-box.key { border-left-color: #ff9800; }
+    .day-box.long { border-left-color: #2196f3; }
+    .day-title { font-weight: bold; margin-bottom: 0.5rem; }
   </style>
 </head>
 <body>
@@ -101,40 +109,71 @@
 
     <section>
       <h2>Objectifs de course & prévisions</h2>
-      <table aria-label="Prévisions des courses">
+      <table>
         <thead>
           <tr><th>Course</th><th>Date</th><th>Distance / D+</th><th>Estimation</th><th>Tendance</th></tr>
         </thead>
         <tbody>
-          <tr><td>Trail du Juliau</td><td>20/04/2025</td><td>21 km / 900D+</td><td>2h34</td><td><span class="arrow-flat">→</span></td></tr>
-          <tr><td>Ultimateman</td><td>31/05/2025</td><td>Backyard 6,7 km / 120D+</td><td>16 tours</td><td><span class="arrow-up">↑</span></td></tr>
-          <tr><td>Semi Ardèche Run</td><td>21/06/2025</td><td>21,7 km / 550D+</td><td>2h09</td><td><span class="arrow-flat">→</span></td></tr>
-          <tr><td>Trail de l’Ebron</td><td>12/07/2025</td><td>16 km / 750D+</td><td>1h54</td><td><span class="arrow-flat">→</span></td></tr>
-          <tr><td>Veni Vici</td><td>08/11/2025</td><td>27 km / 700D+</td><td>3h07</td><td><span class="arrow-flat">→</span></td></tr>
-          <tr><td>Trail de Gruissan</td><td>08/12/2025</td><td>12 km / 250D+</td><td>1h04</td><td><span class="arrow-flat">→</span></td></tr>
+          <tr><td>Trail du Juliau</td><td>20/04/2025</td><td>21 km / 900D+</td><td>2h33</td><td><span class="arrow-up">↑</span></td></tr>
+          <tr><td>Ultimateman</td><td>31/05/2025</td><td>Backyard 6,7 km / 120D+</td><td>17 tours</td><td><span class="arrow-up">↑</span></td></tr>
+          <tr><td>Semi Ardèche Run</td><td>21/06/2025</td><td>21,7 km / 550D+</td><td>2h08</td><td><span class="arrow-flat">→</span></td></tr>
         </tbody>
       </table>
     </section>
 
     <section>
-      <h2>Indicateurs de forme</h2>
-      <div class="indicator-box">
-        <strong>IPC (Préparation) : 82 / 100</strong>
-        <div class="bar ipc" style="width: 82%"></div>
+      <h2>Indicateurs de forme (14 avril 2025)</h2>
+      <div class="indicator-box ipc-box">
+        <strong>IPC (Préparation) : 84 / 100</strong>
+        <div class="bar ipc" style="width: 84%"></div>
       </div>
-      <div class="indicator-box">
-        <strong>IES (Stimulation) : 56 / 100</strong>
-        <div class="bar ies" style="width: 56%"></div>
+      <div class="indicator-box ies-box">
+        <strong>IES (Stimulation) : 52 / 100</strong>
+        <div class="bar ies" style="width: 52%"></div>
       </div>
-      <div class="indicator-box">
-        <strong>Charge hebdo : 480 TSS</strong>
+      <div class="indicator-box charge-box">
+        <strong>Charge hebdo : 476 TSS</strong>
         <div class="bar charge" style="width: 60%"></div>
       </div>
     </section>
 
     <section>
+      <h2>Planning des 7 prochains jours</h2>
+      <div class="calendar">
+        <div class="day-box key">
+          <div class="day-title">Lundi</div>
+          6 × 2' côte / récup 1' + 15' footing
+        </div>
+        <div class="day-box rest">
+          <div class="day-title">Mardi</div>
+          Renforcement haut du corps + gainage (30 min)
+        </div>
+        <div class="day-box key">
+          <div class="day-title">Mercredi</div>
+          Footing vallonné 1h15 (250 D+)
+        </div>
+        <div class="day-box rest">
+          <div class="day-title">Jeudi</div>
+          Renfo bas du corps + mobilité + 30’ footing
+        </div>
+        <div class="day-box rest">
+          <div class="day-title">Vendredi</div>
+          Footing léger 45 min + 4× 20" côtes explosives
+        </div>
+        <div class="day-box rest">
+          <div class="day-title">Samedi</div>
+          Renforcement fonctionnel & stretching
+        </div>
+        <div class="day-box long">
+          <div class="day-title">Dimanche</div>
+          Sortie longue allégée : 12 km / 400 D+ (terrain Juliau)
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>Barèmes indicateurs</h2>
-      <table aria-label="Barèmes des indicateurs">
+      <table>
         <thead>
           <tr><th>Indice</th><th>Faible</th><th>Correct</th><th>Optimal</th><th>Élevé</th></tr>
         </thead>
@@ -148,7 +187,7 @@
 
     <section>
       <h2>Synchronisation</h2>
-      <button class="sync-btn" aria-label="Synchroniser les données">Synchroniser avec Garmin / Kubios</button>
+      <button class="sync-btn">Synchroniser avec Garmin / Kubios</button>
     </section>
 
   </main>
