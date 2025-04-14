@@ -28,6 +28,8 @@
     .day-box.key { border-left-color: #ff9800; }
     .day-box.race { border-left-color: #e91e63; }
     .day-title { font-weight: bold; margin-bottom: 0.5rem; }
+
+    .ipc-table td:last-child { color: #4caf50; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -52,11 +54,28 @@
     </section>
 
     <section>
+      <h2>Indice de Préparation Course (IPC)</h2>
+      <table class="ipc-table">
+        <thead>
+          <tr><th>Course</th><th>Date</th><th>IPC</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Trail du Juliau</td><td>20/04/2025</td><td>84</td></tr>
+          <tr><td>Ultimateman</td><td>31/05/2025</td><td>76</td></tr>
+          <tr><td>Semi Ardèche Run</td><td>21/06/2025</td><td>71</td></tr>
+          <tr><td>Trail de l’Ebron</td><td>12/07/2025</td><td>68</td></tr>
+          <tr><td>Veni Vici</td><td>08/11/2025</td><td>70</td></tr>
+          <tr><td>Trail de Gruissan</td><td>08/12/2025</td><td>74</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
       <h2>Indicateurs de forme (14 avril 2025)</h2>
-      <div class="indicator-box ipc-box"><strong>IPC (Préparation) : 84 / 100</strong><div class="bar ipc" style="width: 84%"></div></div>
+      <div class="indicator-box ipc-box"><strong>IPC global : 84 / 100</strong><div class="bar ipc" style="width: 84%"></div></div>
       <div class="indicator-box ies-box"><strong>IES (Stimulation) : 52 / 100</strong><div class="bar ies" style="width: 52%"></div></div>
       <div class="indicator-box charge-box"><strong>Charge hebdo : 476 TSS</strong><div class="bar charge" style="width: 60%"></div></div>
-      <div class="indicator-box vo2-box"><strong>VO2max estimée : 54 ml/kg/min</strong></div>
+      <div class="indicator-box vo2-box"><strong>VO2max réelle (Garmin) : 50 ml/kg/min</strong></div>
     </section>
 
     <section>
