@@ -14,19 +14,15 @@
     .ipc-score { font-weight: bold; color: #4caf50; }
     .bar { display: inline-block; height: 10px; border-radius: 4px; margin-top: 0.25rem; }
     .bar.ipc { background-color: #4caf50; } .bar.ies { background-color: #2196f3; } .bar.charge { background-color: #ff9800; }
+    .bar.energy { background-color: #ffc107; }
     .indicator-box { margin-top: 1rem; padding: 1rem; background: #1a1a1a; border-left: 6px solid; border-radius: 4px; }
-    .ipc-box { border-left-color: #4caf50; } .ies-box { border-left-color: #2196f3; } .charge-box { border-left-color: #ff9800; } .vo2-box { border-left-color: #9c27b0; }
+    .ipc-box { border-left-color: #4caf50; } .ies-box { border-left-color: #2196f3; } .charge-box { border-left-color: #ff9800; } .vo2-box { border-left-color: #9c27b0; } .energy-box { border-left-color: #ffc107; }
     .calendar { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-top: 1rem; }
     .day-box { background: #1c1c1c; padding: 1rem; border-radius: 6px; border-left: 5px solid #4caf50; }
     .day-box.rest { border-left-color: #777; }
     .day-box.key { border-left-color: #ff9800; }
     .day-box.race { border-left-color: #e91e63; }
     .day-title { font-weight: bold; margin-bottom: 0.5rem; }
-    .sync-btn { margin: 2rem auto 0; display: block; background-color: #4caf50; color: white; padding: 0.75rem 1.5rem; font-size: 1rem; border: none; border-radius: 6px; cursor: pointer; transition: background-color 0.2s; }
-    .sync-btn:hover { background-color: #45a049; }
-    @media (max-width: 768px) {
-      th, td { font-size: 0.85rem; padding: 0.5rem; }
-    }
   </style>
 </head>
 <body>
@@ -56,6 +52,7 @@
       <div class="indicator-box ies-box"><strong>IES (Stimulation) : 52 / 100</strong><div class="bar ies" style="width: 52%"></div></div>
       <div class="indicator-box charge-box"><strong>Charge hebdo : 476 TSS</strong><div class="bar charge" style="width: 60%"></div></div>
       <div class="indicator-box vo2-box"><strong>VO2max réelle (Garmin) : 50 ml/kg/min</strong></div>
+      <div class="indicator-box energy-box"><strong>Coût énergétique : 105 kcal/km/100D+</strong><div class="bar energy" style="width: 70%"></div></div>
     </section>
 
     <section>
@@ -63,11 +60,11 @@
       <div class="calendar">
         <div class="day-box key"><div class="day-title">Lundi</div>40’ footing + 4×1’ en côte (récup 1’)</div>
         <div class="day-box rest"><div class="day-title">Mardi</div>Renfo haut du corps + gainage</div>
-        <div class="day-box key"><div class="day-title">Mercredi</div>1h footing vallonné (200–250 D+)</div>
-        <div class="day-box key"><div class="day-title">Jeudi</div>30’ footing très léger + 3×30" côte / récup descente</div>
+        <div class="day-box key"><div class="day-title">Mercredi</div>1h10 footing vallonné (200–250 D+)</div>
+        <div class="day-box key"><div class="day-title">Jeudi</div>30’ footing très léger + 3×30" en côte (récup descente)</div>
         <div class="day-box rest"><div class="day-title">Vendredi</div>Repos complet</div>
         <div class="day-box rest"><div class="day-title">Samedi</div>20’ footing + 3 lignes droites</div>
-        <div class="day-box race"><div class="day-title">Dimanche</div>Course : Trail du Juliau – 21 km / 900 D+</div>
+        <div class="day-box race"><div class="day-title">Dimanche</div>Trail du Juliau – 21 km / 900 D+</div>
       </div>
     </section>
 
@@ -81,13 +78,9 @@
           <tr><td>IPC</td><td>&lt; 60</td><td>60–75</td><td>75–90</td><td>&gt; 90</td></tr>
           <tr><td>IES</td><td>&lt; 40</td><td>40–60</td><td>60–80</td><td>&gt; 80</td></tr>
           <tr><td>Charge hebdo</td><td>&lt; 300</td><td>300–450</td><td>450–600</td><td>&gt; 600</td></tr>
+          <tr><td>Coût énergétique</td><td>&gt; 120</td><td>100–120</td><td>80–100</td><td>&lt; 80</td></tr>
         </tbody>
       </table>
-    </section>
-
-    <section>
-      <h2>Synchronisation</h2>
-      <button class="sync-btn">Synchroniser avec Garmin / Kubios</button>
     </section>
 
   </main>
